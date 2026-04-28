@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise 🎂</title><style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  text-align: center;
+  color: white;
+}
+
+.container {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px white; }
+  to { text-shadow: 0 0 25px yellow; }
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  background: #ff4081;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.card {
+  display: none;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.2);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+img {
+  width: 220px;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+#cakeCut {
+  display: none;
+  font-size: 20px;
+  margin-top: 15px;
+  animation: pop 1s ease-in-out infinite alternate;
+}
+
+@keyframes pop {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+footer {
+  margin-top: 30px;
+  padding: 10px;
+}
+</style></head><body><div class="container">
+  <h1>🎉 Happy Birthday 🎉</h1><button class="btn" onclick="showSurprise()">Open Surprise 🎁</button>
+
+  <div class="card" id="surprise">
+    <h2>Special Message 💖</h2>
+    <p><b>Happy Birthday my love 💖</b><br><br>
+    Avi aap jese smile kr rhi ho wese hi humesa smile karti rho 😊<br>
+    or hum apke sath humesa hai 💕<br>
+    I love you 😘💖<br>
+    Meri babuu ❤️</p><img id="cake" src="https://images.unsplash.com/photo-1542826438-65d2a2c0e4b1" alt="Cake">
+
+<div id="cakeCut">🍰 Cake Cut Ho Gaya 🎉</div>
+
+<br>
+<button class="btn" onclick="cutCake()">Cut Cake 🎂</button>
+
+  </div><audio id="music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b7b6b0f3.mp3?filename=happy-birthday-to-you-12233.mp3"></audio>
+
+</div><footer>
+  <p>Made by Harsh Sahu ❤️</p>
+</footer><script>
+function showSurprise() {
+  document.getElementById("surprise").style.display = "block";
+  document.getElementById("music").play();
+}
+
+function cutCake() {
+  document.getElementById("cake").src = "https://images.unsplash.com/photo-1601979031925-424e53b6caaa"; 
+  document.getElementById("cakeCut").style.display = "block";
+}
+</script></body>
+</html>

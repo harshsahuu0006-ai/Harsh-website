@@ -5,164 +5,55 @@
 <title>Birthday Surprise 🎂</title><style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: Arial;
+  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
   text-align: center;
   color: white;
-  overflow: hidden;
 }
 
-.container {
-  padding: 20px;
+.btn{
+  padding:10px 20px;
+  background:#ff4081;
+  border:none;
+  border-radius:20px;
+  color:white;
+  margin-top:15px;
 }
 
-h1 {
-  font-size: 2.5rem;
-  animation: glow 2s infinite alternate;
+.card{display:none;margin-top:20px}
+img{width:220px;margin-top:15px;border-radius:10px}
+</style></head><body><h1>🎉 Happy Birthday 🎉</h1>
+<button class="btn" onclick="showSurprise()">Open Surprise 🎁</button><div class="card" id="box"><p id="msg"></p><img id="cake" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Birthday_cake_with_candles.jpg"><p id="cakeText" style="display:none">🎉 Happy Birthday 🎂 My Love 💖</p><button class="btn" id="btn" onclick="cutCake()">Cut Cake 🎂</button>
+
+<audio id="music">
+  <source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid" type="audio/mpeg">
+</audio></div><script>
+let text="Happy Birthday my love 💖\nAvi aap jese smile kr rhi ho wese hi humesa smile karti rho 😊\nI love you 😘💖";
+let i=0;
+
+function type(){
+ if(i<text.length){
+  document.getElementById("msg").innerHTML+=text[i]=="\n"?"<br>":text[i];
+  i++;
+  setTimeout(type,40);
+ }
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 10px white; }
-  to { text-shadow: 0 0 25px yellow; }
+function showSurprise(){
+ document.getElementById("box").style.display="block";
+ document.getElementById("music").play().catch(()=>{});
+ type();
 }
 
-.btn {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 25px;
-  background: #ff4081;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
+function cutCake(){
+ document.getElementById("cake").src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cake_slice.jpg/320px-Cake_slice.jpg";
+ document.getElementById("cakeText").style.display="block";
+
+ let b=document.getElementById("btn");
+ b.innerText="Show Me 💖";
+ b.onclick=function(){
+  document.getElementById("cake").src="YOUR_IMAGE_LINK_HERE";
+ };
 }
-
-.card {
-  display: none;
-  margin-top: 20px;
-  background: rgba(255,255,255,0.2);
-  padding: 20px;
-  border-radius: 15px;
-}
-
-img {
-  width: 220px;
-  border-radius: 15px;
-  margin-top: 15px;
-}
-
-#cakeCut {
-  display: none;
-  font-size: 20px;
-  margin-top: 15px;
-  animation: pop 1s ease-in-out infinite alternate;
-}
-
-@keyframes pop {
-  from { transform: scale(1); }
-  to { transform: scale(1.1); }
-}
-
-#message {
-  margin-top: 15px;
-  font-size: 18px;
-  min-height: 100px;
-}
-
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-</style></head><body><canvas id="fireworks"></canvas>
-
-<div class="container">
-  <h1>🎉 Happy Birthday 🎉</h1><button class="btn" onclick="showSurprise()">Open Surprise 🎁</button>
-
-  <div class="card" id="surprise">
-    <h2>Special Message 💖</h2>
-    <div id="message"></div><img id="cake" src="https://cdn.pixabay.com/photo/2016/03/05/19/02/happy-birthday-1236584_1280.jpg">
-
-<div id="cakeCut">🎉 Happy Birthday 🎂 My Love 💖</div>
-
-<br>
-<button class="btn" id="actionBtn" onclick="cutCake()">Cut Cake 🎂</button>
-
-  </div><audio id="music" src="https://cdn.pixabay.com/download/audio/2021/10/28/audio_3f5f5b6b06.mp3?filename=happy-birthday-royalty-free-6316.mp3"></audio>
-
-</div><script>
-let text = "Happy Birthday my love 💖\nAvi aap jese smile kr rhi ho wese hi humesa smile karti rho 😊\nor hum apke sath humesa hai 💕\nI love you 😘💖\nMeri babuu ❤️";
-let i = 0;
-
-function typeEffect() {
-  if (i < text.length) {
-    document.getElementById("message").innerHTML += text.charAt(i) === '\n' ? '<br>' : text.charAt(i);
-    i++;
-    setTimeout(typeEffect, 50);
-  }
-}
-
-function showSurprise() {
-  document.getElementById("surprise").style.display = "block";
-  document.getElementById("music").play();
-  typeEffect();
-  startFireworks();
-}
-
-function cutCake() {
-  document.getElementById("cake").src = "https://cdn.pixabay.com/photo/2017/05/07/08/56/cake-2296128_1280.jpg";
-  document.getElementById("cakeCut").style.display = "block";
-
-  // Change button to Show Me
-  let btn = document.getElementById("actionBtn");
-  btn.innerText = "Show Me 💖";
-  btn.onclick = showPic;
-}
-
-function showPic() {
-  // Yaha tum apna image link daal sakte ho
-  document.getElementById("cake").src = "https://via.placeholder.com/300";
-}
-
-// Fireworks
-const canvas = document.getElementById('fireworks');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-function createFirework(x, y) {
-  for (let i = 0; i < 50; i++) {
-    particles.push({
-      x: x,
-      y: y,
-      vx: Math.random() * 5 - 2.5,
-      vy: Math.random() * 5 - 2.5,
-      alpha: 1
-    });
-  }
-}
-
-function startFireworks() {
-  setInterval(() => {
-    createFirework(Math.random() * canvas.width, Math.random() * canvas.height);
-  }, 800);
-}
-
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach((p, index) => {
-    p.x += p.vx;
-    p.y += p.vy;
-    p.alpha -= 0.01;
-    ctx.fillStyle = "rgba(255,255,255," + p.alpha + ")";
-    ctx.fillRect(p.x, p.y, 3, 3);
-    if (p.alpha <= 0) particles.splice(index, 1);
-  });
-  requestAnimationFrame(animate);
-}
-
-animate();
 </script></body>
 </html>

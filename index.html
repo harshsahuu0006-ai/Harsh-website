@@ -89,24 +89,22 @@ function openBox(){
 }
 
 // cake cut
-function cutCake(){
+  function cutCake(){
   let img = document.getElementById("cake");
 
   // cake cut effect (same image thoda change feeling)
   img.style.opacity = "0.5";
 
   // text show
+function cutCake(){
+  let img = document.getElementById("cake");
+
+  // cake cut effect (image change)
+  img.src = "cake2.jpg";   // या same cake भी रख सकते हो
+
+  // text show
   document.getElementById("finalText").style.display = "block";
-
-  let b = document.getElementById("btn");
-  b.innerText = "Show Me 💖";
-
-  // अब second click पर photo change
-  b.onclick = function(){
-    img.style.opacity = "1";
-    img.src = "YOUR_IMAGE_LINK_HERE";
-  };
-  }
+    }
 </script>
 
 </body>

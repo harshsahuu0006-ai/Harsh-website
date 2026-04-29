@@ -1,59 +1,74 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
+<title>Birthday Surprise 🎂</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Surprise 🎂</title><style>
+<style>
 body {
-  margin: 0;
-  font-family: Arial;
-  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
-  text-align: center;
-  color: white;
+  text-align:center;
+  font-family:Arial;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  color:white;
 }
-
-.btn{
+button{
   padding:10px 20px;
-  background:#ff4081;
+  margin-top:15px;
   border:none;
   border-radius:20px;
+  background:#ff4081;
   color:white;
-  margin-top:15px;
 }
+#box{display:none;}
+img{width:220px;margin-top:15px;border-radius:10px;}
+</style>
+</head>
 
-.card{display:none;margin-top:20px}
-img{width:220px;margin-top:15px;border-radius:10px}
-</style></head><body><h1>🎉 Happy Birthday 🎉</h1>
-<button class="btn" onclick="showSurprise()">Open Surprise 🎁</button><div class="card" id="box"><p id="msg"></p><img id="cake" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Birthday_cake_with_candles.jpg"><p id="cakeText" style="display:none">🎉 Happy Birthday 🎂 My Love 💖</p><button class="btn" id="btn" onclick="cutCake()">Cut Cake 🎂</button>
+<body>
 
-<audio id="music">
-  <source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid" type="audio/mpeg">
-</audio></div><script>
-let text="Happy Birthday my love 💖\nAvi aap jese smile kr rhi ho wese hi humesa smile karti rho 😊\nI love you 😘💖";
+<h1>🎉 Happy Birthday 🎉</h1>
+<button onclick="openBox()">Open Surprise 🎁</button>
+
+<div id="box">
+  <p id="msg"></p>
+
+  <img id="cake" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Birthday_cake_with_candles.jpg">
+
+  <p id="text2" style="display:none;">🎉 Happy Birthday 🎂 My Love 💖</p>
+
+  <button id="btn" onclick="cutCake()">Cut Cake 🎂</button>
+
+  <audio id="music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b7b6b0f3.mp3?filename=happy-birthday-to-you-12233.mp3"></audio>
+</div>
+
+<script>
+let message = "Happy Birthday my love 💖\\nAvi aap jese smile kr rhi ho wese hi humesa smile karti rho 😊\\nI love you 😘💖";
 let i=0;
 
 function type(){
- if(i<text.length){
-  document.getElementById("msg").innerHTML+=text[i]=="\n"?"<br>":text[i];
-  i++;
-  setTimeout(type,40);
- }
+  if(i<message.length){
+    document.getElementById("msg").innerHTML += message[i]=="\\n"?"<br>":message[i];
+    i++;
+    setTimeout(type,40);
+  }
 }
 
-function showSurprise(){
- document.getElementById("box").style.display="block";
- document.getElementById("music").play().catch(()=>{});
- type();
+function openBox(){
+  document.getElementById("box").style.display="block";
+  document.getElementById("music").play();
+  type();
 }
 
 function cutCake(){
- document.getElementById("cake").src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cake_slice.jpg/320px-Cake_slice.jpg";
- document.getElementById("cakeText").style.display="block";
+  document.getElementById("cake").src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cake_slice.jpg/320px-Cake_slice.jpg";
+  document.getElementById("text2").style.display="block";
 
- let b=document.getElementById("btn");
- b.innerText="Show Me 💖";
- b.onclick=function(){
-  document.getElementById("cake").src="YOUR_IMAGE_LINK_HERE";
- };
+  let b=document.getElementById("btn");
+  b.innerText="Show Me 💖";
+  b.onclick=function(){
+    document.getElementById("cake").src="YOUR_IMAGE_LINK_HERE";
+  };
 }
-</script></body>
-</html>
+</script>
+
+</body>
+  </html>

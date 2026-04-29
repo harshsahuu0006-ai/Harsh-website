@@ -90,18 +90,23 @@ function openBox(){
 
 // cake cut
 function cutCake(){
-  document.getElementById("cake").src = "cake2.jpg";
-      }
-  document.getElementById("finalText").style.display="block";
+  let img = document.getElementById("cake");
 
-  let b=document.getElementById("btn");
-  b.innerText="Show Me 💖";
+  img.src = "cake2.jpg";
 
-  b.onclick=function(){
-    document.getElementById("cake").src="YOUR_IMAGE_LINK_HERE";
+  // अगर image load नहीं हुआ तो वापस पुराना दिखाओ
+  img.onerror = function(){
+    alert("cake2.jpg file nahi mili ❌");
+    img.src = "cake.jpg";
   };
-}
 
+  let b = document.getElementById("btn");
+  b.innerText = "Show Me 💖";
+
+  b.onclick = function(){
+    img.src = "YOUR_IMAGE_LINK_HERE";
+  };
+  }
 </script>
 
 </body>

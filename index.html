@@ -90,21 +90,15 @@ function openBox(){
 
 // cake cut
 function cutCake(){
-  let img = document.getElementById("cake");
+  var img = document.getElementById("cake");
 
   img.src = "cake2.jpg";
 
-  // अगर image load नहीं हुआ तो वापस पुराना दिखाओ
-  img.onerror = function(){
-    alert("cake2.jpg file nahi mili ❌");
-    img.src = "cake.jpg";
-  };
-
-  let b = document.getElementById("btn");
+  var b = document.getElementById("btn");
   b.innerText = "Show Me 💖";
 
   b.onclick = function(){
-    img.src = "YOUR_IMAGE_LINK_HERE";
+    img.src = "cake.jpg"; // test ke liye same image
   };
   }
 </script>

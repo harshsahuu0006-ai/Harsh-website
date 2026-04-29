@@ -55,13 +55,15 @@ img{
 
 <p id="msg"></p>
 
-<img id="cake" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Birthday_cake_with_candles.jpg">
 
+<img id="cake" src="https://i.imgur.com/8Km9tLL.jpg">
 <p id="finalText">🎉 Happy Birthday 🎂 My Love 💖</p>
 
 <button id="btn" onclick="cutCake()">Cut Cake 🎂</button>
 
-<audio id="music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b7b6b0f3.mp3?filename=happy-birthday-to-you-12233.mp3"></audio>
+<audio id="music" controls>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
 </div>
 
@@ -88,7 +90,7 @@ function openBox(){
 
 // cake cut
 function cutCake(){
-  document.getElementById("cake").src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cake_slice.jpg/320px-Cake_slice.jpg";
+  document.getElementById("cake").src="https://i.imgur.com/5j8JZ7y.png";
   document.getElementById("finalText").style.display="block";
 
   let b=document.getElementById("btn");
